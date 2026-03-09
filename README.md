@@ -10,13 +10,19 @@ Google Maps provides transit directions, but doesn't let users easily control ho
 
 Below is an example routing from **Alexandria** to **2221 S Clark St** with the walking preference set toward *Less Walking*. The app prioritizes transit-heavy routes, showing bold red lines for transit segments, dotted red lines for walking, and circle markers at station stops.
 
-![Less Walking Example — Alexandria to 2221 S Clark St](docs/less-walking-example.png)
+![Less Walking Example — Alexandria to 2221 S Clark St](docs/less-walk.png)
+
+### Example: "Balanced Walking" Preference
+
+The same route with the slider set toward *Balanced Walking*. The app now ranks the walk-optimized 28-min route first (9 min walk, 18 min transit), showing a longer walking path on the map.
+
+![More Walking Example — Alexandria to 2221 S Clark St](docs/balanced-walk.png)
 
 ### Example: "More Walking" Preference
 
-The same route with the slider set toward *More Walking*. The app now ranks the walk-optimized 41-min route first (32 min walk, 9 min transit), showing a longer walking path on the map.
+Slider set toward *More Walking*. The app now ranks the walk-optimized 41-min route first (32 min walk, 9 min transit), showing a longer walking path on the map.
 
-![More Walking Example — Alexandria to 2221 S Clark St](docs/more-walking-example.png)
+![More Walking Example — Alexandria to 2221 S Clark St](docs/more-walk.png)
 
 ### Key Features
 
