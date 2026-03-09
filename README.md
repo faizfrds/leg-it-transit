@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# 🚌 Legit Transit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A smart public transit routing web application that helps users find the best route between two locations, with a unique **Walking Preference** feature that lets users balance transit time against walking distance.
 
-Currently, two official plugins are available:
+## Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Google Maps provides transit directions, but doesn't let users easily control how much walking they're willing to do. This app fills that gap — users can slide between "Less Walking" (prioritize transit-heavy routes) and "More Walking" (walk-optimized routes that may be faster or healthier), and the app ranks results accordingly.
 
-## React Compiler
+### Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Smart Route Ranking** — Routes are sorted using a weighted cost function based on the user's walking preference slider (less walking → balanced → more walking).
+- **Multiple Route Options** — Requests alternative transit routes from the Google Directions API and presents them as selectable cards with the best option highlighted.
+- **Step-by-Step Breakdown** — Each route card shows a visual summary of transit lines (with line colors and names) and walking segments as compact chips.
+- **Custom Map Rendering** — Selected routes are drawn on the map with distinct visual styles:
+  - **Bold solid red lines** for public transit segments
+  - **Dotted red lines** for walking segments
+  - **Large circle markers** at every transit station stop
+  - **Green/Red markers** for origin and destination
+- **Place Autocomplete** — Google Places Autocomplete on both input fields for fast, accurate location entry.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Technology | Purpose |
+|---|---|
+| [React](https://react.dev/) `19.x` | UI framework and component architecture |
+| [TypeScript](https://www.typescriptlang.org/) `5.9` | Type-safe development |
+| [Vite](https://vite.dev/) `5.x` | Build tool and dev server with HMR |
+| [@vis.gl/react-google-maps](https://visgl.github.io/react-google-maps/) `1.7` | React bindings for Google Maps JavaScript API |
+| [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript) | Map rendering, Directions Service, Places Autocomplete |
+| Vanilla CSS | Styling with glassmorphism, custom slider, and animations |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Google Maps APIs Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Maps JavaScript API** — Interactive map display
+- **Directions API** — Transit route calculation with alternatives
+- **Places API** — Autocomplete for origin/destination inputs
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+
+```
+src/
+├── App.tsx                    # Root component, route calculation logic, state management
+├── App.css                    # App-level style overrides
+├── index.css                  # Global design system (glassmorphism, cards, chips, animations)
+├── main.tsx                   # React entry point
+├── types.ts                   # TypeScript interfaces (Location, RouteOption, RouteStep)
+└── components/
+    ├── Map.tsx                # Google Map + custom polyline/marker route renderer
+    ├── Sidebar.tsx            # Input form, walking slider, route result cards with step chips
+    └── PlaceAutocomplete.tsx  # Google Places Autocomplete wrapper component
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Node.js](https://nodejs.org/) (v18+)
+- A Google Maps API key with the following APIs enabled:
+  - Maps JavaScript API
+  - Directions API
+  - Places API
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
 ```
+
+### Configuration
+
+Create a `.env` file in the project root:
+
+```env
+VITE_GOOGLE_MAPS_API=your_google_maps_api_key_here
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Production Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Usage
+
+1. **Enter a starting point** — Type a location and select from the autocomplete suggestions.
+2. **Enter a destination** — Same as above.
+3. **Adjust walking preference** — Slide left for less walking, right for more walking, or keep centered for balanced routing.
+4. **Click "Find Best Route"** — The app calculates transit routes and displays them ranked by your preference.
+5. **Select a route** — Click any route card to see it rendered on the map with transit lines (solid red), walking paths (dotted red), and station markers.
+
+## License
+
+MIT
