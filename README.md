@@ -92,12 +92,22 @@ npm run preview
 
 ## Usage
 
+### Example: "Less Walking" Preference
+
+Below is an example routing from **Alexandria** to **2221 S Clark St** with the walking preference set toward *Less Walking*. The app prioritizes transit-heavy routes, showing bold red lines for transit segments, dotted red lines for walking, and circle markers at station stops.
+
+![Less Walking Example — Alexandria to 2221 S Clark St](docs/less-walking-example.png)
+
+### Example: "More Walking" Preference
+
+The same route with the slider set toward *More Walking*. The app now ranks the walk-optimized 41-min route first (32 min walk, 9 min transit), showing a longer walking path on the map.
+
+![More Walking Example — Alexandria to 2221 S Clark St](docs/more-walking-example.png)
+
+### Steps
+
 1. **Enter a starting point** — Type a location and select from the autocomplete suggestions.
 2. **Enter a destination** — Same as above.
 3. **Adjust walking preference** — Slide left for less walking, right for more walking, or keep centered for balanced routing.
 4. **Click "Find Best Route"** — The app calculates transit routes and displays them ranked by your preference.
 5. **Select a route** — Click any route card to see it rendered on the map with transit lines (solid red), walking paths (dotted red), and station markers.
-
-## License
-
-MIT
