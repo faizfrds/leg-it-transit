@@ -2,6 +2,9 @@
 
 A smart public transit routing web application that helps users find the best route between two locations, with a unique **Walking Preference** feature that lets users balance transit time against walking distance.
 
+## Design Doc
+https://docs.google.com/document/d/1gYyR2b6TKUOLoMwmXAz-_iFvzu8YtXTyR-F3ZCeqhp4/edit?usp=sharing
+
 ## Purpose
 
 Current public transport routing often prioritizes maximizing the distance traveled on the public transit line, leading to long, sometimes time-inefficient detours to reach the final public transit stop. For users with a high preference for walking, an earlier stop followed by a moderate walk could result in a faster and more active trip.
