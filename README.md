@@ -6,6 +6,18 @@ A smart public transit routing web application that helps users find the best ro
 
 Google Maps provides transit directions, but doesn't let users easily control how much walking they're willing to do. This app fills that gap — users can slide between "Less Walking" (prioritize transit-heavy routes) and "More Walking" (walk-optimized routes that may be faster or healthier), and the app ranks results accordingly.
 
+### Example: "Less Walking" Preference
+
+Below is an example routing from **Alexandria** to **2221 S Clark St** with the walking preference set toward *Less Walking*. The app prioritizes transit-heavy routes, showing bold red lines for transit segments, dotted red lines for walking, and circle markers at station stops.
+
+![Less Walking Example — Alexandria to 2221 S Clark St](docs/less-walking-example.png)
+
+### Example: "More Walking" Preference
+
+The same route with the slider set toward *More Walking*. The app now ranks the walk-optimized 41-min route first (32 min walk, 9 min transit), showing a longer walking path on the map.
+
+![More Walking Example — Alexandria to 2221 S Clark St](docs/more-walking-example.png)
+
 ### Key Features
 
 - **Smart Route Ranking** — Routes are sorted using a weighted cost function based on the user's walking preference slider (less walking → balanced → more walking).
@@ -91,18 +103,6 @@ npm run preview
 ```
 
 ## Usage
-
-### Example: "Less Walking" Preference
-
-Below is an example routing from **Alexandria** to **2221 S Clark St** with the walking preference set toward *Less Walking*. The app prioritizes transit-heavy routes, showing bold red lines for transit segments, dotted red lines for walking, and circle markers at station stops.
-
-![Less Walking Example — Alexandria to 2221 S Clark St](docs/less-walking-example.png)
-
-### Example: "More Walking" Preference
-
-The same route with the slider set toward *More Walking*. The app now ranks the walk-optimized 41-min route first (32 min walk, 9 min transit), showing a longer walking path on the map.
-
-![More Walking Example — Alexandria to 2221 S Clark St](docs/more-walking-example.png)
 
 ### Steps
 
