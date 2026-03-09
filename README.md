@@ -4,7 +4,7 @@ A smart public transit routing web application that helps users find the best ro
 
 ## Purpose
 
-Google Maps provides transit directions, but doesn't let users easily control how much walking they're willing to do. This app fills that gap — users can slide between "Less Walking" (prioritize transit-heavy routes) and "More Walking" (walk-optimized routes that may be faster or healthier), and the app ranks results accordingly.
+Current public transport routing often prioritizes maximizing the distance traveled on the public transit line, leading to long, sometimes time-inefficient detours to reach the final public transit stop. For users with a high preference for walking, an earlier stop followed by a moderate walk could result in a faster and more active trip.
 
 ### Example: "Less Walking" Preference
 
